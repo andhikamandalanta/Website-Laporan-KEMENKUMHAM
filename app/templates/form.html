@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <title>Formulir Penggantian Kata-kata</title>
     <style>
+        /* Import font dari Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
+        /* Styling untuk body */
         body {
             display: flex;
             justify-content: center;
@@ -15,6 +17,7 @@
             margin: 200px;
         }
 
+        /* Efek blur untuk background */
         body::before {
             content: '';
             position: fixed;
@@ -22,85 +25,95 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('/static/images/bg.jpg'); /* lokasi gambar background */
+            background-image: url('/static/images/bg.jpg'); /* Lokasi gambar background */
             background-size: cover;
             background-position: center;
-            filter: blur(5px); /* Blur effect */
-            z-index: -1; /* Place it behind everything */
+            filter: blur(5px); /* Efek blur */
+            z-index: -1; /* Letakkan di belakang semua elemen */
         }
 
+        /* Styling untuk header */
         header {
             text-align: center;
             margin-bottom: 30px;
         }
 
+        /* Styling untuk judul header */
         header h1 {
-            font-size: 24px; /* Adjust the font size as needed */
+            font-size: 24px; /* Ukuran font disesuaikan */
             font-weight: bold;
-            color: #333; /* Adjust the color as needed */
+            color: #333; /* Warna teks */
         }
 
+        /* Garis pemisah */
         header hr {
             border: none;
-            border-top: 1.5px solid #333; /* Atur ketebalan dan warna garis */
-            margin: 20px 0; /* Atur margin atas dan bawah */
+            border-top: 1.5px solid #333; /* Ketebalan dan warna garis */
+            margin: 20px 0; /* Margin atas dan bawah */
         }
 
+        /* Wrapper untuk formulir */
         .form-wrapper {
-            width: 800px; /* Adjusted width */
-            background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
-            padding: 25px; /* Padding inside form */
-            border-radius: 10px; /* Rounded corners */
-            z-index: 1; /* Place it above the blurred background */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add box shadow for depth */
+            width: 800px; /* Lebar formulir */
+            background: rgba(255, 255, 255, 0.8); /* Latar belakang semi-transparan */
+            padding: 25px; /* Padding di dalam formulir */
+            border-radius: 10px; /* Sudut bulat */
+            z-index: 1; /* Letakkan di atas latar belakang yang di-blur */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Opsional: Tambahkan bayangan */
         }
 
+        /* Grid untuk penempatan elemen formulir */
         form {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 0px 20px; 
+            gap: 0px 20px; /* Jarak antar kolom dan baris */
             text-align: center;
         }
 
+        /* Grup untuk setiap elemen formulir */
         .form-group {
             position: relative;
             margin-bottom: 10px;
         }
 
+        /* Input teks dan textarea */
         input[type="text"],
         textarea {
             width: 100%;
-            padding: 10px 8px; /* Reduced padding */
+            padding: 10px 8px; /* Padding */
             box-sizing: border-box;
             border: 1px solid #ccc;
             border-radius: 4px;
             outline: none;
             font-family: 'Poppins', Arial, sans-serif;
-            resize: vertical; /* Allow vertical resizing */
+            resize: vertical; /* Izinkan penyesuaian vertikal */
         }
 
+        /* Judul untuk input */
         .form-title h4 {
             text-align: justify;
             margin: 10px;
             font-family: 'Poppins', Arial, sans-serif;
-            font-size: 14px; /* Adjusted font size */
-            transition: 0.3s ease; /* Transition for smooth movement */
+            font-size: 14px; /* Ukuran font disesuaikan */
+            transition: 0.3s ease; /* Transisi untuk gerakan halus */
         }
 
+        /* Label untuk input */
         .form-group label {
             position: absolute;
-            top: 10px; /* Adjusted for reduced padding */
+            top: 10px; /* Atur posisi label */
             left: 8px;
             background: #fff;
             border-radius: 5px;
             padding: 0 5px;
             transition: 0.2s;
-            color: #aaa; /* Keep the original color */
+            color: #aaa; /* Warna teks */
             pointer-events: none;
             font-family: 'Poppins', Arial, sans-serif;
-            font-size: 12px; /* Adjusted font size */
+            font-size: 12px; /* Ukuran font disesuaikan */
         }
 
+        /* Efek focus pada input */
         input:focus + label,
         input:not(:placeholder-shown) + label,
         textarea:focus + label,
@@ -108,22 +121,24 @@
             top: -10px;
             left: 5px;
             font-size: 10px;
-            color: #aaa; /* Keep the original color */
+            color: #aaa; /* Warna teks */
         }
 
+        /* Efek focus pada input */
         input:focus,
         textarea:focus {
             border-color: #000;
         }
 
+        /* Tombol submit */
         input[type="submit"] {
             grid-column: span 2;
-            padding: 12px; /* Reduced padding */
-            background-color: #2A2D85; /* Match background color of button image */
+            padding: 12px; /* Padding */
+            background-color: #2A2D85; /* Warna latar tombol */
             color: white;
             border: none;
-            border-radius: 30px; /* Rounded corners */
-            font-size: 16px; /* Adjusted font size */
+            border-radius: 30px; /* Sudut bulat */
+            font-size: 16px; /* Ukuran font disesuaikan */
             font-weight: bold;
             font-family: 'Poppins', Arial, sans-serif;
             cursor: pointer;
@@ -131,24 +146,27 @@
             margin-top: 30px;
         }
 
+        /* Efek hover pada tombol submit */
         input[type="submit"]:hover {
-            background-color: #1f215c; /* Darker shade for hover effect */
+            background-color: #1f215c; /* Warna lebih gelap untuk efek hover */
         }
 
+        /* Efek focus pada elemen formulir */
         .form-title:focus-within h4 {
-            transform: translateY(-10px); /* Adjust this value as needed */
+            transform: translateY(-10px); /* Translasi vertikal */
         }
 
     </style>
 </head>
 <body>
-    <!-- Dibawah ini struktur html nya -->
     <div class="form-wrapper">
         <header>
             <h1>LAPORAN EVALUASI SATUAN KERJA</h1>
             <hr>
         </header>
+        <!-- Formulir untuk penggantian kata-kata -->
         <form action="/replace" method="post">
+            <!-- Input untuk Satuan Kerja (dalam huruf besar untuk KOP) -->
             <div class="form-title">
                 <h4>Satuan Kerja (Tulis dalam huruf besar untuk KOP)</h4>
                 <div class="form-group">
@@ -157,6 +175,7 @@
                 </div>
             </div>
 
+            <!-- Input untuk Satuan Kerja (dalam huruf besar untuk Judul) -->
             <div class="form-title">
                 <h4>Satuan Kerja (Tulis dalam huruf besar untuk Judul)</h4>
                 <div class="form-group">
@@ -165,6 +184,7 @@
                 </div>
             </div>
 
+            <!-- Input untuk Alamat -->
             <div class="form-title">
                 <h4>Alamat</h4>
                 <div class="form-group">
@@ -173,6 +193,7 @@
                 </div>
             </div>
     
+            <!-- Input untuk Nomor Telpon -->
             <div class="form-title">
                 <h4>Telpon</h4>
                 <div class="form-group">
@@ -181,6 +202,7 @@
                 </div>
             </div>
     
+            <!-- Input untuk Laman -->
             <div class="form-title">
                 <h4>Laman</h4>
                 <div class="form-group">
@@ -189,6 +211,7 @@
                 </div>
             </div>
     
+            <!-- Input untuk Surel -->
             <div class="form-title">
                 <h4>Surel</h4>
                 <div class="form-group">
@@ -197,6 +220,7 @@
                 </div>
             </div>
     
+            <!-- Input untuk Satuan Kerja (dalam huruf kecil semua) -->
             <div class="form-title">
                 <h4>Satuan Kerja (Tulis dalam huruf kecil semua)</h4>
                 <div class="form-group">
@@ -205,6 +229,7 @@
                 </div>
             </div>
 
+            <!-- Input untuk Triwulan -->
             <div class="form-title">
                 <h4>Triwulan</h4>
                 <div class="form-group">
@@ -213,6 +238,7 @@
                 </div>
             </div>
     
+            <!-- Input untuk Tahun -->
             <div class="form-title">
                 <h4>Tahun</h4>
                 <div class="form-group">
@@ -221,6 +247,7 @@
                 </div>
             </div>
     
+            <!-- Input untuk Output -->
             <div class="form-title">
                 <h4>Output</h4>
                 <div class="form-group">
@@ -229,6 +256,7 @@
                 </div>
             </div>
     
+            <!-- Input untuk Hambatan Pertama -->
             <div class="form-title">
                 <h4>Hambatan 1</h4>
                 <div class="form-group">
@@ -237,6 +265,7 @@
                 </div>
             </div>
     
+            <!-- Input untuk Hambatan Kedua -->
             <div class="form-title">
                 <h4>Hambatan 2</h4>
                 <div class="form-group">
@@ -245,6 +274,7 @@
                 </div>
             </div>
     
+            <!-- Input untuk Rencana Pertama -->
             <div class="form-title">
                 <h4>Rencana 1</h4>
                 <div class="form-group">
@@ -253,6 +283,7 @@
                 </div>
             </div>
     
+            <!-- Input untuk Rencana Kedua -->
             <div class="form-title">
                 <h4>Rencana 2</h4>
                 <div class="form-group">
@@ -261,6 +292,7 @@
                 </div>
             </div>
     
+            <!-- Tombol untuk mengirim formulir -->
             <input type="submit" value="Ganti">
         </form>
     </div>
