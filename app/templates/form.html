@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulir Penggantian Kata-kata</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 150px;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/static/images/bg.jpg'); /* Path to your background image */
+            background-size: cover;
+            background-position: center;
+            filter: blur(5px); /* Blur effect */
+            z-index: -1; /* Place it behind everything */
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 24px; /* Adjust the font size as needed */
+            font-weight: bold;
+            color: #333; /* Adjust the color as needed */
+        }
+
+        header hr {
+            border: none;
+            border-top: 1.5px solid #333; /* Atur ketebalan dan warna garis */
+            margin: 20px 0; /* Atur margin atas dan bawah */
+        }
+
+        .form-wrapper {
+            width: 800px; /* Adjusted width */
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            padding: 15px; /* Padding inside form */
+            border-radius: 10px; /* Rounded corners */
+            z-index: 1; /* Place it above the blurred background */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add box shadow for depth */
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 20px; 
+            text-align: center;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px 8px; /* Reduced padding */
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+
+        .form-title h4 {
+            text-align: justify;
+            margin: 0;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 14px; /* Adjusted font size */
+            transition: 0.3s ease; /* Transition for smooth movement */
+        }
+
+        .form-group label {
+            position: absolute;
+            top: 10px; /* Adjusted for reduced padding */
+            left: 8px;
+            background: #fff;
+            border-radius: 5px;
+            padding: 0 5px;
+            transition: 0.2s;
+            color: #aaa;
+            pointer-events: none;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 12px; /* Adjusted font size */
+        }
+
+        input:focus + label,
+        input:not(:placeholder-shown) + label {
+            top: -10px;
+            left: 5px;
+            font-size: 10px;
+            color: #000;
+        }
+
+        input:focus {
+            border-color: #000;
+        }
+
+        input[type="submit"] {
+            grid-column: span 2;
+            padding: 12px; /* Reduced padding */
+            background-color: #2A2D85; /* Match background color of button image */
+            color: white;
+            border: none;
+            border-radius: 30px; /* Rounded corners */
+            font-size: 16px; /* Adjusted font size */
+            font-weight: bold;
+            font-family: 'Poppins', Arial, sans-serif;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1f215c; /* Darker shade for hover effect */
+        }
+
+        .form-title:focus-within h4 {
+            transform: translateY(-10px); /* Adjust this value as needed */
+        }
+    </style>
+</head>
+<body>
+    <div class="form-wrapper">
+        <header>
+            <h1>LAPORAN EVALUASI SATUAN KERJA</h1>
+            <hr>
+        </header>
+        <form action="/replace" method="post">
+            <div class="form-title">
+                <h4>Judul</h4>
+                <div class="form-group">
+                    <input type="text" id="judul" name="judul" placeholder=" " required>
+                    <label for="judul">Masukkan Judul</label>
+                </div>
+            </div>
+
+            <div class="form-title">
+                <h4>Alamat</h4>
+                <div class="form-group">
+                    <input type="text" id="alamat" name="alamat" placeholder=" " required>
+                    <label for="alamat">Masukkan Alamat</label>
+                </div>
+            </div>
+    
+            <div class="form-title">
+                <h4>Telpon</h4>
+                <div class="form-group">
+                    <input type="text" id="telpon" name="telpon" placeholder=" " required>
+                    <label for="telpon">Masukkan Nomor Telpon</label>
+                </div>
+            </div>
+    
+            <div class="form-title">
+                <h4>Laman</h4>
+                <div class="form-group">
+                    <input type="text" id="laman" name="laman" placeholder=" " required>
+                    <label for="laman">Masukkan Laman</label>
+                </div>
+            </div>
+    
+            <div class="form-title">
+                <h4>Surel</h4>
+                <div class="form-group">
+                    <input type="text" id="surel" name="surel" placeholder=" " required>
+                    <label for="surel">Masukkan Surel</label>
+                </div>
+            </div>
+    
+            <div class="form-title">
+                <h4>Namsat</h4>
+                <div class="form-group">
+                    <input type="text" id="namsat" name="namsat" placeholder=" " required>
+                    <label for="namsat">Masukkan Namsat</label>
+                </div>
+            </div>
+    
+            <div class="form-title">
+                <h4>Satker</h4>
+                <div class="form-group">
+                    <input type="text" id="satker" name="satker" placeholder=" " required>
+                    <label for="satker">Masukkan Satker</label>
+                </div>
+            </div>
+
+            <div class="form-title">
+                <h4>Triwulan</h4>
+                <div class="form-group">
+                    <input type="text" id="triwulan" name="triwulan" placeholder=" " required>
+                    <label for="triwulan">Masukkan Triwulan</label>
+                </div>
+            </div>
+    
+            <div class="form-title">
+                <h4>Tahun</h4>
+                <div class="form-group">
+                    <input type="text" id="tahun" name="tahun" placeholder=" " required>
+                    <label for="tahun">Masukkan Tahun</label>
+                </div>
+            </div>
+    
+            <div class="form-title">
+                <h4>Output</h4>
+                <div class="form-group">
+                    <input type="text" id="output" name="output" placeholder=" " required>
+                    <label for="output">Masukkan Output</label>
+                </div>
+            </div>
+    
+            <div class="form-title">
+                <h4>Hambatan 1</h4>
+                <div class="form-group">
+                    <input type="text" id="hambatan1" name="hambatan1" placeholder=" " required>
+                    <label for="hambatan1">Masukkan Hambatan Pertama</label>
+                </div>
+            </div>
+    
+            <div class="form-title">
+                <h4>Hambatan 2</h4>
+                <div class="form-group">
+                    <input type="text" id="hambatan2" name="hambatan2" placeholder=" " required>
+                    <label for="hambatan2">Masukkan Hambatan Kedua</label>
+                </div>
+            </div>
+    
+            <div class="form-title">
+                <h4>Rencana 1</h4>
+                <div class="form-group">
+                    <input type="text" id="rencana1" name="rencana1" placeholder=" " required>
+                    <label for="rencana1">Masukkan Rencana Pertama</label>
+                </div>
+            </div>
+    
+            <div class="form-title">
+                <h4>Rencana 2</h4>
+                <div class="form-group">
+                    <input type="text" id="rencana2" name="rencana2" placeholder=" " required>
+                    <label for="rencana2">Masukkan Rencana Kedua</label>
+                </div>
+            </div>
+    
+            <input type="submit" value="Ganti">
+        </form>
+    </div>
+</body>
+</html>
