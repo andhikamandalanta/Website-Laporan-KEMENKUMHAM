@@ -165,7 +165,8 @@
             <hr>
         </header>
         <!-- Formulir untuk penggantian kata-kata -->
-        <form action="/replace" method="post">
+        <form action="/replace" method="POST" enctype="multipart/form-data">
+
             <!-- Input untuk Satuan Kerja (dalam huruf besar untuk KOP) -->
             <div class="form-title">
                 <h4>Satuan Kerja (Tulis dalam huruf besar untuk KOP)</h4>
@@ -318,6 +319,16 @@
                     <label for="rencana2">Masukkan Rencana Kedua</label>
                 </div>
             </div>
+
+            <div class="form-group">
+                <label for="gambar_gbremonev">Gambar E-Monev:</label>
+                <input type="file" id="gambar_gbremonev" name="gambar_gbremonev" accept="image/*">
+            </div>
+            <div class="form-group">
+                <label for="gambar_gmbrsmart">Gambar Smart:</label>
+                <input type="file" id="gambar_gmbrsmart" name="gambar_gmbrsmart" accept="image/*">
+            </div>
+
     
             <!-- Tombol untuk mengirim formulir -->
             <input type="submit" value="Ganti">
